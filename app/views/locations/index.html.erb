@@ -1,0 +1,91 @@
+<!-- 
+Notes:
+  The creative design of the following code is from ChatGPT,
+  but the part showing the list and link to a new page is my own work
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Travel Journal</title>
+
+  <style>
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                   "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: white;
+      margin: 0;
+      padding: 80px 20px;
+      color: #1d1d1f;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 50px;
+    }
+    .place {
+      font-size: 24px;
+      padding: 18px 0;
+      border-bottom: 1px solid #e5e5e7;
+    }
+    .place a {
+      text-decoration: none;
+      color: #1d1d1f;
+      transition: 0.25s;
+    }
+    .place a:hover {
+      color: #0071e3;
+    }
+    .button-container {
+      margin-top: 50px;
+    }
+    .add-button {
+      font-size: 17px;
+      padding: 12px 22px;
+      background-color: #0071e3;
+      color: white;
+      text-decoration: none;
+      border-radius: 980px;
+      transition: 0.25s;
+    }
+    .add-button:hover {
+      background-color: #0077ED;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+  </style>
+
+</head>
+
+<body>
+<div class="container">
+
+<h1>
+Places I've Been
+</h1>
+
+<% for place in @locations %>
+  <div class="place">
+    <a href="/locations/<%= place["id"] %>">
+      <%= place["name"] %>
+    </a>
+  </div>
+<% end %>
+
+<div class="button-container">
+  <a href="/locations/new" class="add-button">
+    Add New Place
+  </a>
+</div>
+
+</div>
+
+</body>
+
+</html>
