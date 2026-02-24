@@ -4,8 +4,8 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @location = Place.find_by({"id" => params["id"]})
-    @journals = Entry.where(place_id: @location["id"])
+    @showlocation = Place.find_by({"id" => params["id"]})
+    @showjournals = Entry.where(place_id: @showlocation["id"])
   end
 
   def new

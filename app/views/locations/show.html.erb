@@ -81,10 +81,10 @@ Notes:
 <body>
 
   <h1>
-    <%= @location["name"] %>
+    <%= @showlocation["name"] %>
   </h1>
 
-  <% for entry in @journals %>
+  <% for entry in @showjournals %>
 
     <div class="post">
 
@@ -106,11 +106,11 @@ Notes:
 
   <div class="new-post">
 
-    <a href="/locations/new?place_id=<%= @location["id"] %>" class="button new-button">
+    <a href="/locations/new?place_id=<%= @showlocation["id"] %>" class="button new-button">
       New Post
     </a>
 
-    <a href="/home" class="button home-button">
+    <a href="/locations" class="button home-button">
       ← Return Home
     </a>
 
