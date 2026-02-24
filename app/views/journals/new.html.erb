@@ -1,0 +1,52 @@
+<!-- 
+Notes:
+  The creative design of the following code is from ChatGPT,
+  but non-design part of the work is my own effort
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;background:white;margin:0;padding:80px 20px;color:#1d1d1f;}
+    .container{max-width:700px;margin:auto;}
+    h1{font-size:48px;font-weight:600;letter-spacing:-0.02em;margin-bottom:10px;}
+    .subtitle{font-size:18px;color:#6e6e73;margin-bottom:40px;}
+    .label{font-size:14px;color:#6e6e73;margin:18px 0 8px;}
+    .input{width:100%;max-width:520px;font-size:18px;padding:14px 16px;border:1px solid #e5e5e7;border-radius:12px;outline:none;transition:0.2s;}
+    .input:focus{border-color:#0071e3;box-shadow:0 0 0 4px rgba(0,113,227,0.15);}
+    .textarea{min-height:160px;resize:vertical;line-height:1.4;}
+    .button-row{margin-top:32px;}
+    .button{display:inline-block;font-size:17px;padding:12px 22px;border-radius:980px;border:none;cursor:pointer;text-decoration:none;transition:0.25s;}
+    .primary{background:#0071e3;color:white;}
+    .primary:hover{background:#0077ED;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+    .secondary{background:#f5f5f7;color:#1d1d1f;margin-left:12px;}
+    .secondary:hover{background:#e5e5ea;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>New Post</h1>
+    <div class="subtitle">for <%= @location["name"] %></div>
+
+    <form action="/journals" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="place_id" value="<%= @location["id"] %>">
+
+      <div class="label">Title</div>
+      <input class="input" type="text" name="title" required>
+
+      <div class="label">Date</div>
+      <input class="input" type="date" name="occurred_on" required>
+
+      <div class="label">Description</div>
+      <textarea class="input textarea" name="description" required></textarea>
+
+      <div class="button-row">
+        <button class="button primary" type="submit">Create Post</button>
+        <a class="button secondary" href="/locations/<%= @location["id"] %>">Cancel</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

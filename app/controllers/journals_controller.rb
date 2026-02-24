@@ -1,6 +1,6 @@
 class JournalsController < ApplicationController
   def new
-    @location = Place.find(params["location_id"])
+    @location = Place.find(params["place_id"])
   end
 
   def create

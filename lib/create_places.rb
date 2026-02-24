@@ -1,3 +1,5 @@
+# The following codes will insert some places/entries as an initial list
+
 Place.destroy_all
 
 toronto = Place.new
